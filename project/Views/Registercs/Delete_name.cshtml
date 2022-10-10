@@ -1,0 +1,39 @@
+﻿@model project.Models.names
+
+<h3>آیا مطمئن هستید که میخواهید حذف کنید؟</h3>
+<div>
+    <h4>نام</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.field)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.field)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.days)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.days)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.namedoc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.namedoc)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete_name_cofirmed">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="حذف" class="btn btn-danger" /> |
+        <a asp-action="remove">بازگشت</a>
+    </form>
+</div>

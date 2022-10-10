@@ -1,0 +1,30 @@
+﻿@model IEnumerable<project.Models.confirmedselect>
+
+<h4>نوبت های گرفته شده</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.namedoc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem=>item.namedoc)
+                    </td>
+                    <td>
+                        <a asp-action="cancel" asp-route-id="@item.id">حذف</a> |
+
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

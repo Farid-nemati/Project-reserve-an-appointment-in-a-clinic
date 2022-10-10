@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+
+    @if (1 == 1)
+    {
+        object value2 = TempData.Peek("account");
+        @if (value2 != null)
+        {
+            if (value2.ToString() == "loggedin")
+            {
+                object value = TempData.Peek("email");
+                <li class="nav-item">
+                    <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @value</a>
+                </li>
+                <li class="nav-item">
+                    <form  class="form-inline" asp-action="logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                    </form>
+                </li>
+            }
+            if(value2.ToString()=="admin"){
+
+                object value = TempData.Peek("email");
+                            <li class="nav-item">
+                                <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @value2</a>
+                            </li>
+                            <li class="nav-item">
+                                <form  class="form-inline" asp-action="logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                </form>
+                            </li>
+            }
+        }
+
+    }
+</ul>

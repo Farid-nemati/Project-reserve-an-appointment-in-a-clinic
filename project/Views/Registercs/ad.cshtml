@@ -1,0 +1,47 @@
+﻿@model project.Models.names
+
+<h4>names</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ad">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="field" class="control-label">تخصص</label>
+                <input asp-for="field" class="form-control" />
+                <span asp-validation-for="field" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="days" class="control-label">روز های روانشناسی</label>
+                <input asp-for="days" class="form-control" />
+                <span asp-validation-for="days" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label">تعرفه</label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="namedoc" class="control-label">نام متخصص</label>
+                <input asp-for="namedoc" class="form-control" />
+                <span asp-validation-for="namedoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+                <script type="text/javascript">
+                    window.onload=function(){
+                            alert("@ViewBag.Message");
+                    };
+                    </script>
+    }
+</div>
+
+<div>
+    <a asp-action="bossenter">بازگشت</a>
+</div>
+

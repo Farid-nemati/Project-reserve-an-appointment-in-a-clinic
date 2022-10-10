@@ -1,0 +1,26 @@
+﻿<h4>ایمیل خود را وارد کنید</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="forgotten">
+            <div class="form-group"
+                 <label for="email" class="control-label">email</label>
+                <input name="email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="تایید" class="btn btn-primary" />
+            </div>
+        </form>
+        @if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+                window.onload=function(){
+                    alert("@ViewBag.Message");
+            };
+            </script>}
+    </div>
+</div>
+
+<div>
+    <a asp-action="login">بازگشت</a>
+</div>

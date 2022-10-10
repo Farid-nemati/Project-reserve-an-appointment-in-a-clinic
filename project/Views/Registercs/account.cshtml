@@ -1,0 +1,51 @@
+﻿@model project.Models.account
+
+<h4>account</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="account">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="firstname" class="control-label"></label>
+                <input asp-for="firstname" class="form-control" />
+                <span asp-validation-for="firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lastname" class="control-label"></label>
+                <input asp-for="lastname" class="form-control" />
+                <span asp-validation-for="lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="repeat_password" class="control-label"></label>
+                <input asp-for="repeat_password" class="form-control" />
+                <span asp-validation-for="repeat_password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ساخت اکانت" class="btn btn-primary" />
+            </div>
+        </form>
+          @if(ViewBag.Message!=null){
+        <script type="text/javascript">
+            window.onload=function(){
+                    alert("@ViewBag.Message");
+            };
+            </script>
+    }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Create">بازگشت</a>
+</div>
+

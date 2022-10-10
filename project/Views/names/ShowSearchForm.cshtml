@@ -1,0 +1,26 @@
+﻿<h4>جست و جوی متخصص بر اساس نام یا تخصص</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ShowSearchResults">
+            <div class="form-group"
+                <label for="SearchPhrase" class="control-label">نام</label>
+                <input name="SearchPhrase" class="form-control" />
+           
+            </div>
+              <div class="form-group"
+                <label for="fieldsearch" class="control-label">تخصص</label>
+                <input name="fieldsearch" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="جست و جو" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">بازگشت</a>
+</div>
+

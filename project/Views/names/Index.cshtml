@@ -1,0 +1,41 @@
+﻿@model IEnumerable<project.Models.names>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.field)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.days)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.namedoc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.field)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.namedoc)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

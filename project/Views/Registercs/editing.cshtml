@@ -1,0 +1,48 @@
+﻿@model project.Models.names
+
+<h4>نام ها</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="editing">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="field" class="control-label"></label>
+                <input asp-for="field" class="form-control" />
+                <span asp-validation-for="field" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="days" class="control-label"></label>
+                <input asp-for="days" class="form-control" />
+                <span asp-validation-for="days" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="namedoc" class="control-label"></label>
+                <input asp-for="namedoc" class="form-control" />
+                <span asp-validation-for="namedoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ذخیره" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+                <script type="text/javascript">
+                    window.onload=function(){
+                            alert("@ViewBag.Message");
+                    };
+                    </script>
+    }
+</div>
+
+<div>
+    <a asp-action="editing_list">بازگشت</a>
+</div>
+
