@@ -501,61 +501,38 @@ namespace project.Controllers
             }
             return View();
         }
-
+        
         public async Task<IActionResult> account([Bind("id,firstname,lastname,email,password,repeat_password")] account acc)
         {
             int length = 0;
-            var namef = _context.account.Any(j => j.firstname==acc.firstname);
-            var namel = _context.account.Any(j => j.lastname==acc.lastname);
+            var namef = new account();
+            var namel = new account();
+             namef = await _context.account.Where(j => j.firstname.Contains(acc.firstname)).FirstOrDefaultAsync();
+             namel =await _context.account.Where(j => j.lastname.Contains(acc.lastname)).FirstOrDefaultAsync();
             var em= _context.account.Any(j=>j.email==acc.email);
             if (acc.firstname != null && acc.lastname != null && acc.email != null && acc.password != null && Equals(acc.password, acc.repeat_password) == true)
             {
                 length = acc.password.Length; 
                 if (length > 8)
                 {
-                    if (!namef && !namel)
-                    {
-                        if (!em)
-                        {
-
-                            _context.Add<account>(acc);
-                            await _context.SaveChangesAsync();
-                      }
-                      else
-                        {
-                            ViewBag.Message = "This user has already been created!";
-                        }
-                    }
-                    else if (namef && !namel)
-                    {
-                        if (!em)
-                        {
-
-                            _context.Add<account>(acc);
-                            await _context.SaveChangesAsync();
-                        }
-                        else
-                        {
-                            ViewBag.Message = "This user has already been created!";
-                        }
-                    }
-                    else if(!namef && namel)
-                    {
-                        if (!em)
-                        {
-
-                            _context.Add<account>(acc);
-                            await _context.SaveChangesAsync();
-                        }
-                        else
-                        {
-                            ViewBag.Message = "This user has already been created!";
-                        }
-                    } 
-                    else
+                    if (namef.firstname == namel.firstname && namel.lastname == namef.lastname)
                     {
                         ViewBag.Message = "This user has already been created!";
-                   }
+                    }
+                    else
+                    {
+                        if (!em)
+                        {
+                            _context.Add<account>(acc);
+                            _context.SaveChanges();
+                            return RedirectToAction(nameof(login));
+                        }
+                        else
+                        {
+                            ViewBag.Message = "This email has already been used!";
+                        }
+                    }
+                    
                }
                 if (length <= 8)
                 {
